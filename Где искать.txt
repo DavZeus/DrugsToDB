@@ -1,0 +1,19 @@
+N_LP: hccdo:drugCountryRegistrationDetails -> hcsdo:drugTradeName
+N_FV: hccdo:drugDetails -> hccdo:packageFormDetails -> hccdo:packageDetails -> hcsdo:dosageFormCode from codes.json
+																			   hcsdo:dosageFormName
+		или непосредственно то, что написано в файле (найти)
+COMPANY_DECLARANT: hccdo:registrationCertificateHolderDetails -> csdo:businessEntityName 
+																 csdo:businessEntityBriefName
+	Не держатель, а производитель:
+	hccdo:drugDetails -> hccdo:manufacturingAuthorizationHolderDetails -> csdo:businessEntityName
+																		  csdo:businessEntityBriefName
+																 
+NREG: hccdo:drugCountryRegistrationDetails -> hccdo:drugRegistrationCertificateDetails -> hcsdo:registrationCertificateId может не быть, искать в след
+DATA: hccdo:drugCountryRegistrationDetails -> hccdo:drugApplicationDetails -> hcsdo:applicationReceiptDate
+TERM: ccdo:resourceItemStatusDetails -> ccdo:validityPeriodDetails -> csdo:startDateTime
+NDATE: hccdo:drugCountryRegistrationDetails -> hccdo:drugRegistrationCertificateDetails -> csdo:docCreationDate может не быть, искать в след
+STATUS: hccdo:drugCountryRegistrationDetails -> hccdo:drugRegistrationCertificateDetails -> hccdo:registrationStatusName может не быть, искать в след
+																							hccdo:registrationStatusCode
+COUNTRY: hccdo:drugCountryRegistrationDetails -> csdo:unifiedCountryCode -> value несколько может быть
+UPDATE_DATE: ccdo:resourceItemStatusDetails -> csdo:updateDateTime
+ID_STR: hcsdo:_id если расширить до 24 ИЛИ hccdo:drugCountryRegistrationDetails -> hccdo:drugApplicationDetails -> hcsdo:applicationId но не похоже на id
